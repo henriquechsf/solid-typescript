@@ -3,6 +3,7 @@ type OrderStatus = 'open' | 'closed';
 
 export default class ShoppingCartLegacy {
   private readonly _items: CartItem[] = [];
+
   private _orderStatus: OrderStatus = 'open';
 
   addItem(item: CartItem): void {
@@ -28,7 +29,7 @@ export default class ShoppingCartLegacy {
   }
 
   checkout(): void {
-    if (this.isEmpty) {
+    if (this.isEmpty()) {
       console.log('Seu carrinho está vazio');
       return;
     }
